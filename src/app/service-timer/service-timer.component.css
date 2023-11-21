@@ -1,0 +1,117 @@
+#timerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "countdown inputs"
+    "timeLog buttonLog";
+    grid-gap: 15px;
+}
+
+#countdown {
+    grid-area: countdown;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "timerCaption"
+    "currentTimer";
+}
+
+#timerCaption {
+    grid-area: timerCaption;
+}
+
+#currentTimer {
+    grid-area: currentTimer;
+}
+
+#inputs {
+    grid-area: inputs;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "labelLimit limit"
+    ". inputControls"
+    "pauseLog pauseLog";
+}
+
+#labelLimit {
+    grid-area: labelLimit;
+    line-height: 45px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+#limit {
+    grid-area: limit;
+    width: 200px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#inputControls {
+    grid-area: inputControls;
+}
+
+#inputControls button {
+    margin: 10px 10px 10px 0px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#inputControls button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+    border: 1px solid black;
+}
+
+#pauseLog {
+    grid-area: pauseLog;
+}
+
+#timeLog {
+    grid-area: timeLog;
+}
+
+#buttonLog {
+    grid-area: buttonLog;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "started paused";
+    text-align: center;
+}
+
+#startedContainer {
+    grid-area: started;
+}
+
+#started, #paused {
+    font-size: 40px;
+}
+
+#pausedContainer {
+    grid-area: paused;
+}
+
+.gridCell {
+    border: 2px solid black;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridCell h3 {
+    padding: 5px;
+}
+
+#countdown {
+    text-align: center;
+}
+
+#countdown h2 {
+    font-size: 40px;
+}

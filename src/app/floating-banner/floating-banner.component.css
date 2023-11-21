@@ -1,0 +1,45 @@
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#text-rotater {
+  border: 3px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 400px;
+  padding: 15px;
+}
+
+
+#rotating-text {
+  /* animation properties */
+
+  transform: translateX(100%);
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}

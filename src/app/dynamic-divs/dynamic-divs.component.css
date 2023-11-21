@@ -1,0 +1,62 @@
+.dynamicDiv {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin:10px;
+    padding: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.divContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "content" "btn";
+    justify-content: center;
+    align-items: center;
+}
+
+.divContainer .title {
+    grid-area: title;
+}
+
+.divContainer .content {
+    grid-area: content;
+}
+
+.divContainer .btn {
+    grid-area: btn;
+}
+
+.tenthBtn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ddd;
+    border: 1px solid #000;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.tenthBtn:hover {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.content {
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0px;
+}

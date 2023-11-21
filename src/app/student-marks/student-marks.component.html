@@ -1,0 +1,60 @@
+<div id="wrapper">
+    <h1>Student Marks</h1>
+    <div class="marks-table">
+      <!--  existing classes on div above example-container mat-elevation-z8 -->
+
+        <!-- <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div> -->
+        <mat-table #table [dataSource]="dataSource" matSort matSortActive="class" matSortDirection="asc">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="class">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="sub_1">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Subject 1 </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sub_1}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="sub_2">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Subject 2 </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sub_2}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="sub_3">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Subject 3 </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sub_3}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator #paginator
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+</div>

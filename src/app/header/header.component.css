@@ -1,0 +1,38 @@
+.pageHeading {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #000000;
+    margin-top: 20px;
+}
+
+#lazyLoadBtns {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 2px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background-color: white;
+}
+
+#lazyLoadBtns button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    /* background-color: white; */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#lazyLoadBtns button:hover {
+    cursor: pointer;
+    /* background-color: #ddd; */
+    border: 1px solid black;
+}
+
+.active{ 
+    background-color: red;
+}

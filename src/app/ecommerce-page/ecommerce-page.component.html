@@ -1,0 +1,17 @@
+<div id="wrapper">
+    <div id="viewSelecter">
+        <select #view name="view" id="viewPicker" title="viewPicker" [(ngModel)]="selectedOption" (change)="viewChanged()">
+            <option *ngFor="let o of options">
+               {{o.name}}
+            </option>
+         </select>
+    </div>
+
+    <div id="items">
+        <mat-grid-list cols="{{noofCols}}" rowHeight="2:1" [gutterSize]="'15px'">
+            <mat-grid-tile *ngFor="let item of items">
+                {{ item }}
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
 @Component({
   selector: 'app-root',

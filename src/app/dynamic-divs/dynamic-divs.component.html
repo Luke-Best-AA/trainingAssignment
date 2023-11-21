@@ -1,0 +1,12 @@
+<div id="wrapper">
+    <h1>Dynamic Divs</h1>
+    <ng-container id="dynamicDivs">
+        <div class="dynamicDiv" *ngFor="let div of divs">
+            <div class="divContainer">
+                <p class="title">{{div.title}}</p>
+                <p class="content">{{div.content}}</p>
+                <button class="tenthBtn" type="button" *ngIf="div.tenthDiv" (click)="alertDiv(div.number)">Click Me</button>
+            </div>
+        </div>
+    </ng-container>
+</div>

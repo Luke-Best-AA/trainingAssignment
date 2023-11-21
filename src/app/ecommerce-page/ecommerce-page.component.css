@@ -1,0 +1,19 @@
+#viewSelecter {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#viewPicker {
+    padding: 5px;
+    width: 150px;
+}
+
+#items {
+    margin-top: 15px;
+}
+
+mat-grid-tile {  
+    border: 1px solid #000;  
+    background-color: #FFF;
+}
