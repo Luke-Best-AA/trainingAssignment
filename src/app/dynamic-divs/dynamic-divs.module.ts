@@ -5,15 +5,14 @@ import { DynamicDivsRoutingModule } from './dynamic-divs-routing.module';
 import { DynamicDivsComponent } from './dynamic-divs.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
-
 @NgModule({
   declarations: [
-    DynamicDivsComponent
+    DynamicDivsComponent,
   ],
   imports: [
     CommonModule,
     DynamicDivsRoutingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ]
 })
 export class DynamicDivsModule { }

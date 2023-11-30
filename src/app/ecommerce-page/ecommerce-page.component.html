@@ -1,10 +1,11 @@
 <div id="wrapper">
+    <h1>E-Commerce Page</h1>
     <div id="viewSelecter">
-        <select #view name="view" id="viewPicker" title="viewPicker" [(ngModel)]="selectedOption" (change)="viewChanged()">
-            <option *ngFor="let o of options">
-               {{o.name}}
+        <select #view name="view" id="viewPicker" title="View Picker" [(ngModel)]="selectedOption" (change)="viewChanged()">
+            <option *ngFor="let o of options" [value]="o.name">
+            {{o.name}}
             </option>
-         </select>
+        </select>
     </div>
 
     <div id="items">

@@ -10,7 +10,7 @@ interface DynamicDiv {
 @Component({
   selector: 'app-dynamic-divs',
   templateUrl: './dynamic-divs.component.html',
-  styleUrls: ['./dynamic-divs.component.css']
+  styleUrls: ['./dynamic-divs.component.scss']
 })
 
 export class DynamicDivsComponent implements OnInit {
@@ -35,37 +35,11 @@ export class DynamicDivsComponent implements OnInit {
     this.addDivs();
   }
 
-  createInitialDivs() {
-    // for (let i = 0; i < 20; i++) {
-    //   if (i % 10 == 0) {
-    //     this.tenth = true; 
-    //   }
-      
-    //   this.divs.push({"number": i, "title": 'Div ' + i + 1, content: 'Content ' + i, tenthDiv: this.tenth});
-    
-    //   this.tenth = false;
-    // }
-
-    let divNo = 1;
-
-    for (let element of this.divContents) {
-
-      if (divNo % 10 == 0) {
-        this.tenth = true; 
-      }
-      
-      this.divs.push({"number": divNo, "title": element.title, content: element.content, tenthDiv: this.tenth});
-    
-      this.tenth = false;
-      divNo++;
-    }
-  }
-
   tenthDiv = false;
 
   addDivs() {
     let noofDivs:number = this.divs.length + 1;
-    
+
     for (let element of this.divContents) {
 
       if (noofDivs % 10 == 0) {
@@ -77,6 +51,7 @@ export class DynamicDivsComponent implements OnInit {
       this.tenth = false;
       noofDivs++;
     }
+
   }
 
   alertDiv(divNo:number) {

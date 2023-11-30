@@ -7,11 +7,10 @@
 
 #wrapper {
     width: 100%;
-    margin: 0 auto;
+    margin: 40px auto;
     border: 1px solid black;
     padding: 15px;
-    margin-bottom: 75px;
-    height: auto;
+    min-height: 50vh;
 }
 
 #wrapper h1 {
@@ -31,5 +30,12 @@
         width: 1000px;
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}

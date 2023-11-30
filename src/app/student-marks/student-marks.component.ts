@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-student-marks',
   templateUrl: './student-marks.component.html',
-  styleUrls: ['./student-marks.component.css']
+  styleUrls: ['./student-marks.component.scss']
 })
 
 export class StudentMarksComponent {
@@ -19,6 +19,7 @@ export class StudentMarksComponent {
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
+    // console.log(filterValue);
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }

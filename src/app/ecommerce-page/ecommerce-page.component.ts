@@ -9,7 +9,7 @@ for (let i = 1; i <= 40; i++) {
 @Component({
   selector: 'app-ecommerce-page',
   templateUrl: './ecommerce-page.component.html',
-  styleUrls: ['./ecommerce-page.component.css']
+  styleUrls: ['./ecommerce-page.component.scss']
 })
 
 export class EcommercePageComponent {

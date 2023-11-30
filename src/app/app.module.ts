@@ -8,19 +8,25 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HomeContentComponent } from './home-content/home-content.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MatGridListModule
+    MatGridListModule,
+    HomeContentComponent,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

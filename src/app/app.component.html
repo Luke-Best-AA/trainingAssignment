@@ -1,7 +1,7 @@
 <app-header></app-header>
-
-<router-outlet>
+<app-spinner></app-spinner>
+<router-outlet *ngIf="showPage">
     
 </router-outlet>
 
-<app-footer></app-footer>
+<app-footer *ngIf="showPage"></app-footer>

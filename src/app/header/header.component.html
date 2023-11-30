@@ -1,13 +1,15 @@
-<h1 class="pageHeading">
-    Angular Training Assignment
-</h1>
+<div id="header">
+    <h1 class="pageHeading">
+        Angular Training Assignment
+    </h1>
 
-<div id="lazyLoadBtns" [routerLinkActive]="'active'" [routerLinkActiveOptions]={exact:true}>
-    <button type="button" routerLink="">Home</button>
-    <button type="button" routerLink="/floatingBanner">Floating Banner</button>
-    <button type="button" routerLink="/ecommercePage">E-Commerce Page</button>
-    <button type="button" routerLink="/countdownTimer">Countdown Timer</button>
-    <button type="button" routerLink="/serviceTimer">Service using Subject Countdown Timer</button>
-    <button type="button" routerLink="/studentMarks">Student Marks Table</button>
-    <button type="button" routerLink="/dynamicDivs">Dynamic Divs</button>
+    <div id="lazyLoadBtns">
+        <button type="button" routerLink="/home" routerLinkActive="active-button" [routerLinkActiveOptions]={exact:true}>Home</button>
+        <button type="button" routerLink="/floatingBanner" routerLinkActive="active-button">Floating Banner</button>
+        <button type="button" routerLink="/ecommercePage" routerLinkActive="active-button">E-Commerce Page</button>
+        <button type="button" routerLink="/countdownTimer" routerLinkActive="active-button">Countdown Timer</button>
+        <button type="button" routerLink="/serviceTimer" routerLinkActive="active-button">Service using Subject Countdown Timer</button>
+        <button type="button" routerLink="/studentMarks" routerLinkActive="active-button">Student Marks Table</button>
+        <button type="button" routerLink="/dynamicDivs" routerLinkActive="active-button">Dynamic Divs</button>
+    </div>
 </div>

@@ -11,38 +11,45 @@
     flex-direction: column;
     min-width: 300px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-bottom: 5px;
   }
 
   .marks-table mat-header-cell {
     font-weight: bold;
     border-left: 1px solid #fff;
     border-right: 1px solid #fff;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #ddd;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
   }
 
   .marks-table mat-header-cell:hover {
-    border-radius: 10px 10px 0px 0px;
-    border: 1px solid #ddd;
+    background-color: #ddd;
   }
 
   .marks-table mat-cell {
     transition: all 0.3s ease-in-out;
   }
 
-  .marks-table mat-cell:hover {
-    background-color: #f9f9f9;
+  .marks-table mat-paginator {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
+  #filterBox {
+    width: 100%;
+    cursor: pointer;
   }
-
-  ng-container:nth-child(2n+1){
-    background-color: #e4f0ec;
+  
+  mat-row:nth-child(even){
+      background-color: #eeecec;
   }
-  ng-container:not(:nth-child(4n+1)){
-    background-color:#ffffff;
+          
+  mat-row:nth-child(odd){
+      background-color: #fff;
   }

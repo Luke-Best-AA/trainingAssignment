@@ -6,7 +6,7 @@ import { Counter, CounterService } from './counter.service';
 @Component({
   selector: 'app-service-timer',
   templateUrl: './service-timer.component.html',
-  styleUrls: ['./service-timer.component.css']
+  styleUrls: ['./service-timer.component.scss']
 })
 
 export class ServiceTimerComponent {
