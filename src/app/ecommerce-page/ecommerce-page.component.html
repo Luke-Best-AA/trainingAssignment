@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="wrapper" appDetectBottom (scrolledToBottom)="bottom()">
     <h1>E-Commerce Page</h1>
     <div id="viewSelecter">
         <select #view name="view" id="viewPicker" title="View Picker" [(ngModel)]="selectedOption" (change)="viewChanged()">
@@ -9,9 +9,21 @@
     </div>
 
     <div id="items">
-        <mat-grid-list cols="{{noofCols}}" rowHeight="2:1" [gutterSize]="'15px'">
+        <mat-grid-list cols="{{noofCols}}" rowHeight="250px" [gutterSize]="'15px'">
             <mat-grid-tile *ngFor="let item of items">
-                {{ item }}
+                <div *ngIf="isList" class="item list-item">
+                    <h1>Item {{ item.number }}</h1>
+                    <p>{{ item.description }}</p>
+                    <a href="#">Read More</a>
+                    <img *ngIf="isList" src="{{ item.image }}" alt="">
+                    <h2>£{{item.price}}</h2>               
+                </div>
+                <div *ngIf="isGrid" class="item grid-item">
+                    <h1>Item {{ item.number }}</h1>
+                    <p>{{ item.description }}</p>
+                    <a href="#">Read More</a>
+                    <h2>£{{item.price}}</h2>               
+                </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>

@@ -21,3 +21,50 @@ mat-grid-tile {
     border: 1px solid #000;  
     background-color: #FFF;
 }
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.list-item {
+    grid-template-areas: 
+    "header header"
+    "image description"
+    "link price"    
+}
+
+.grid-item {
+    grid-template-areas: 
+    "header header"
+    "description description"
+    "link price"    
+}
+
+.item h1 {
+    grid-area: header;
+    margin: 10px 10px;
+}
+
+.item p {
+    grid-area: description;
+    margin: 10px 10px;
+}
+
+.item img {
+    grid-area: image;
+    width: calc(100% - 20px);
+    height: 100px;
+    margin: 10px;
+}
+
+.item a {
+    grid-area: link;
+    margin: 0px 10px;
+}
+
+.item h2 {
+    grid-area: price;
+    justify-self: end;
+    margin: 0px 10px;
+}

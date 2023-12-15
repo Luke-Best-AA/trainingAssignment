@@ -1,0 +1,12 @@
+[
+{"position": 1, "name": "Luke Best", "class": 10, "sub_1": 90, "sub_2": 80, "sub_3": 70},
+{"position": 2, "name": "John Doe", "class": 10, "sub_1": 70, "sub_2": 90, "sub_3": 60},
+{"position": 3, "name": "Jane Doe", "class": 10, "sub_1": 60, "sub_2": 70, "sub_3": 90},
+{"position": 4, "name": "John Smith", "class": 9, "sub_1": 80, "sub_2": 60, "sub_3": 80},
+{"position": 5, "name": "Jane Smith", "class": 9, "sub_1": 90, "sub_2": 70, "sub_3": 60},
+{"position": 6, "name": "Luke Skywalker", "class": 9, "sub_1": 70, "sub_2": 90, "sub_3": 80},
+{"position": 7, "name": "Anakin Skywalker", "class": 8, "sub_1": 60, "sub_2": 80, "sub_3": 90},
+{"position": 8, "name": "Darth Vader", "class": 8, "sub_1": 80, "sub_2": 60, "sub_3": 70},
+{"position": 9, "name": "Obi-Wan Kenobi", "class": 7, "sub_1": 90, "sub_2": 70, "sub_3": 60},
+{"position": 10, "name": "Han Solo", "class": 7, "sub_1": 70, "sub_2": 90, "sub_3": 80}
+]

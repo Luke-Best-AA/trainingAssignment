@@ -1,6 +1,14 @@
+#wrapper {
+    text-align: center;
+}
+
+#dynamicDivs {
+    position: relative;
+}
+
 .dynamicDiv {
     width: 200px;
-    height: 200px;
+    height: 250px;
     display: inline-block;
     margin:10px;
     padding: 10px;
@@ -36,7 +44,6 @@
     outline: none;
     padding: 10px;
     border-radius: 10px;
-    background-color: #ddd;
     border: 1px solid #000;
     width: 100%;
     margin: 15px 0px;
@@ -47,6 +54,7 @@
     border: 1px solid #ddd;
     font-weight: bold;
 }
+
 
 .title {
     font-size: 20px;
@@ -59,4 +67,12 @@
     font-size: 16px;
     text-align: center;
     margin: 10px 0px;
+}
+
+.contentLoading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }

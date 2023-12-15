@@ -1,11 +1,8 @@
-.banner {
+#wrapper {
   display: flex;
-
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
-
+  align-items: center;
 }
 
 #text-rotater {
@@ -13,7 +10,8 @@
   border-radius: 5px;
   overflow: hidden;
   width: 400px;
-  padding: 15px;
+  height: 50px;
+  line-height: 45px;
 }
 
 
@@ -21,7 +19,7 @@
   /* animation properties */
 
   transform: translateX(100%);
-  animation: my-animation 15s linear infinite;
+  animation: my-animation 7s linear infinite;
 }
 
 /* for Firefox */

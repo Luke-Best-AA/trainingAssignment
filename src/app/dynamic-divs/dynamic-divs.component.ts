@@ -14,6 +14,15 @@ interface DynamicDiv {
 })
 
 export class DynamicDivsComponent implements OnInit {
+  themeColor = 'warn';
+
+  newDivs:boolean = false
+
+  noToLoad:number = 10;
+  rows:number = 0;
+  lastAccessed:number = 0;
+  scrollHeight:number = 0;
+  clientHeight:number = 0;
 
   divContents = [
     {title: 'First Div', content: 'This is the first div'},
@@ -27,53 +36,75 @@ export class DynamicDivsComponent implements OnInit {
     {title: 'Div 9', content: 'Content 9'},
     {title: 'Tenth Div', content: 'This Div is a multiple of 10 so will have a button to click'},
   ];
+
+  responseLength = this.divContents.length;
   
   divs:DynamicDiv[] = [];
   tenth = false;
   
   ngOnInit(): void {
-    this.addDivs();
+    var wrapper = document.getElementById('wrapper');
+    var width = wrapper!.offsetWidth;
+    var height = wrapper!.offsetHeight;
+    this.noToLoad = Math.floor(width/240);
+
+    this.scrollHeight = wrapper!.scrollHeight;
+    this.clientHeight = wrapper!.clientHeight;
+
+    this.createDivs();
+
+    this.rows = Math.floor(height/240);    
+
+    for (let i = 0; i < this.rows; i++) {
+      this.createDivs();
+      this.scrollHeight = wrapper!.scrollHeight;
+      this.clientHeight = wrapper!.clientHeight;
+    }
   }
 
   tenthDiv = false;
 
-  addDivs() {
-    let noofDivs:number = this.divs.length + 1;
-
-    for (let element of this.divContents) {
-
+  createDivs() {
+    let noofDivs:number = this.divs.length + 1;    
+    for (let i = 0; i < this.noToLoad; i++) {
       if (noofDivs % 10 == 0) {
         this.tenth = true; 
       }
       
-      this.divs.push({"number": noofDivs, "title": element.title, content: element.content, tenthDiv: this.tenth});
+      this.divs.push({"number": noofDivs, "title": this.divContents[this.lastAccessed].title, content: this.divContents[this.lastAccessed].content, tenthDiv: this.tenth});
     
       this.tenth = false;
       noofDivs++;
+      this.lastAccessed++;
+      if (this.lastAccessed == this.responseLength) {
+        this.lastAccessed = 0;
+      }
     }
+  }    
+
+  addDivs() {  
+    this.newDivs = true;
+    setTimeout(() => {
+
+      this.createDivs()
+
+      this.newDivs = false;
+    }, 1000);
 
   }
 
-  alertDiv(divNo:number) {
-    alert("Button " + divNo + " clicked");
+  tenthClick(divTitle:string, divContent:string, divNo:number) {
+    let modalHeading = document.getElementById("tenthModalLabel");
+    let modalContent = document.getElementById("tenthModalContent");
+
+    modalHeading!.innerHTML = "Div " + divNo + ": " + divTitle;
+    modalContent!.innerHTML = divContent;
   }
 
   elements = [1];
   count = 1;
 
-  @HostListener("window:scroll", [])
-  onScroll(): void {
-    if (this.bottomReached()) {
-      //setTimeout(this.addDivs(),1000);
-      this.addDivs();
-    }
+  identify(item: any) {
+    return item.title;
   }
-
-  bottomReached(): boolean {
-    let scrollHeight = document.documentElement.scrollHeight;
-    let scrollTop = document.documentElement.scrollTop;
-    let clientHeight = document.documentElement.clientHeight;
-    return scrollTop + clientHeight >= scrollHeight;
-  }
-
 }

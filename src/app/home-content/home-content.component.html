@@ -1,5 +1,26 @@
 <div id="wrapper">
-    <h1 id="page_title">Welcome to my Angular Training Assignment</h1>
-    <a class="pdf_link" href="../../assets/pdf/Case Study_Angular Training.pdf" target="pdf">Assignment Brief</a>
-    <img id="angular_img" src="https://tse2.mm.bing.net/th/id/OIP.UW4z__OL4YcPyGrIN9KqBQHaHa?rs=1&pid=ImgDetMain" alt="angular-17">
+    <h1 id="home-header">Welcome to my Angular Assignment</h1>
+    <img id="home-img" src="https://www.bing.com/th?id=OSK.5a2325ab31374a75334be924929ac71c&w=188&h=132&c=7&o=6&pid=SANGAM" alt="">
+    <button class="btn btn-lg btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">Click Me</button>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Angular Training Assignment</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        Welcome to my Angular Assignment. Below are the links to the different components of the assignment.
+      </div>
+      <div class="btn-group-vertical w-100 align-items-center mt-3" role="group" aria-label="Vertical button group">
+        <button type="button" class="btn btn-light" routerLink="/home" routerLinkActive="active-button" [routerLinkActiveOptions]={exact:true}>Home</button>
+        <button type="button" class="btn btn-dark" routerLink="/floatingBanner" routerLinkActive="active-button">Floating Banner</button>
+        <button type="button" class="btn btn-light" routerLink="/ecommercePage" routerLinkActive="active-button">E-Commerce Page</button>
+        <button type="button" class="btn btn-dark" routerLink="/countdownTimer" routerLinkActive="active-button">Countdown Timer</button>
+        <button type="button" class="btn btn-light" routerLink="/serviceTimer" routerLinkActive="active-button">Service using Subject Countdown Timer</button>
+        <button type="button" class="btn btn-dark" routerLink="/studentMarks" routerLinkActive="active-button">Student Marks Table</button>
+        <button type="button" class="btn btn-light" routerLink="/dynamicDivs" routerLinkActive="active-button">Dynamic Divs</button>
+      </div>
+    </div>
 </div>

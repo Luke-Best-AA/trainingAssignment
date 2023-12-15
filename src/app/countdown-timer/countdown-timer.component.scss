@@ -74,6 +74,8 @@
 
 #timeLog {
     grid-area: timeLog;
+    height: 250px;
+    overflow-y: auto;
 }
 
 #buttonLog {

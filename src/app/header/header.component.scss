@@ -4,7 +4,7 @@
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #000000;
-    padding-top: 15px;
+    padding: 15px;
     background-color: white;
 }
 
@@ -19,7 +19,6 @@
 
 #header {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);  
-    position: sticky;
     top: 0;
     z-index: 200;    
 }
@@ -27,14 +26,12 @@
 #lazyLoadBtns button {
     margin: 0 10px;
     padding: 10px 20px;
-    /* background-color: white; */
     border: 1px solid #ddd;
     border-radius: 10px;
 }
 
 #lazyLoadBtns button:hover {
     cursor: pointer;
-    /* background-color: #ddd; */
     border: 1px solid black;
 }
 

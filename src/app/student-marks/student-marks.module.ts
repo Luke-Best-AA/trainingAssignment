@@ -9,10 +9,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NgChartsModule } from 'ng2-charts'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    StudentMarksComponent
+    StudentMarksComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,9 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgChartsModule,
+    HttpClientModule
   ]
 })
 export class StudentMarksModule { }

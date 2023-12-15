@@ -1,55 +1,47 @@
-/* Exisiting styling
+.marks-table {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
 
-.example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  } */
-  
-  .marks-table {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding-bottom: 5px;
-  }
+.marks-table mat-header-cell {
+  font-weight: bold;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
 
-  .marks-table mat-header-cell {
-    font-weight: bold;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
-    border-top: 1px solid #ddd;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-  }
+.marks-table mat-header-cell:hover {
+  background-color: #ddd;
+}
 
-  .marks-table mat-header-cell:hover {
-    background-color: #ddd;
-  }
+.marks-table mat-cell {
+  transition: all 0.3s ease-in-out;
+}
 
-  .marks-table mat-cell {
-    transition: all 0.3s ease-in-out;
-  }
+.marks-table mat-paginator {
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .marks-table mat-paginator {
-    border-top: 1px solid #ddd;
-    padding-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+#filterBox {
+  width: 100%;
+  cursor: pointer;
+}
 
-  #filterBox {
-    width: 100%;
-    cursor: pointer;
-  }
-  
-  mat-row:nth-child(even){
-      background-color: #eeecec;
-  }
-          
-  mat-row:nth-child(odd){
-      background-color: #fff;
-  }
+mat-row:nth-child(even){
+  background-color: #eeecec;
+}
+        
+mat-row:nth-child(odd){
+  background-color: #fff;
+}

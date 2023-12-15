@@ -1,7 +1,5 @@
 <div id="wrapper">
     <div class="marks-table">
-      <!--  existing classes on div above example-container mat-elevation-z8 -->
-
         <div class="example-header">
           <mat-form-field id="filterBox">
             <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
@@ -9,29 +7,22 @@
           <h1>Student Marks</h1>
         </div>
         <mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
-      
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-      
-          <!-- Position Column -->
+
           <ng-container matColumnDef="position">
             <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
           </ng-container>
-      
-          <!-- Name Column -->
+
           <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
           </ng-container>
-      
-          <!-- Weight Column -->
+
           <ng-container matColumnDef="class">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
           </ng-container>
-      
-          <!-- Symbol Column -->
+
           <ng-container matColumnDef="sub_1">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Subject 1 </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.sub_1}} </mat-cell>

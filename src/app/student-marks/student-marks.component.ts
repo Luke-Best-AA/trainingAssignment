@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { HttpClient } from '@angular/common/http'
 
 @Component({
   selector: 'app-student-marks',
@@ -11,7 +12,20 @@ import { MatPaginator } from '@angular/material/paginator';
 
 export class StudentMarksComponent {
   displayedColumns = ['position', 'name', 'class', 'sub_1', 'sub_2', 'sub_3'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  data: any;
+  dataSource: any;
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.http.get('assets/data.json').subscribe(res => {
+      this.data = res;
+      this.dataSource = new MatTableDataSource(this.data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;      
+    });
+  }
+
   
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -19,15 +33,10 @@ export class StudentMarksComponent {
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
-    // console.log(filterValue);
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
+
 }
 
 export interface Element {
@@ -38,16 +47,3 @@ export interface Element {
   sub_3: number;
   position: number;
 }
-
-const ELEMENT_DATA: Element[] = [
-  {position: 1, name: 'Luke Best', class: 10, sub_1: 90, sub_2: 80, sub_3: 70},
-  {position: 2, name: 'John Doe', class: 10, sub_1: 70, sub_2: 90, sub_3: 60},
-  {position: 3, name: 'Jane Doe', class: 10, sub_1: 60, sub_2: 70, sub_3: 90},
-  {position: 4, name: 'John Smith', class: 9, sub_1: 80, sub_2: 60, sub_3: 80},
-  {position: 5, name: 'Jane Smith', class: 9, sub_1: 90, sub_2: 70, sub_3: 60},
-  {position: 6, name: 'Luke Skywalker', class: 9, sub_1: 70, sub_2: 90, sub_3: 80},
-  {position: 7, name: 'Anakin Skywalker', class: 8, sub_1: 60, sub_2: 80, sub_3: 90},
-  {position: 8, name: 'Darth Vader', class: 8, sub_1: 80, sub_2: 60, sub_3: 70},
-  {position: 9, name: 'Obi-Wan Kenobi', class: 7, sub_1: 90, sub_2: 70, sub_3: 60},
-  {position: 10, name: 'Han Solo', class: 7, sub_1: 70, sub_2: 90, sub_3: 80},
-];

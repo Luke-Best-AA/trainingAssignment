@@ -1,29 +1,21 @@
-import { Component } from '@angular/core';
-import { Router, Event, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-spinner',
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatProgressSpinnerModule
+  ],
 })
 
 export class SpinnerComponent {
-  isLoading: boolean = false;
-
-  constructor(router: Router) {
-    // Subscribe to the router events
-    router.events.subscribe((event: Event) => {
-      // If the event is RouteConfigLoadStart, set the variable to true
-      if (event instanceof RouteConfigLoadStart) {
-        this.isLoading = true;
-      }
-      // If the event is RouteConfigLoadEnd, set the variable to false
-      if (event instanceof RouteConfigLoadEnd) {
-        setTimeout(() => {
-          this.isLoading = false;
-        }, 1000);
-      }
-    });
-  }  
+  @Input() color = 'primary';
+  @Input() diameter = "100";
+  @Input() width = "10";
 }
 

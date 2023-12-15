@@ -15,7 +15,7 @@ import { CountdownModule } from 'ngx-countdown';
     CommonModule,
     CountdownTimerRoutingModule,
     FormsModule,
-    CountdownModule
+    CountdownModule,
   ]
 })
 export class CountdownTimerModule { }

@@ -1,25 +1,10 @@
-#page_title {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-    color: #000;
-    text-shadow: 5px 5px 10px #ddd;
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.pdf_link {
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-    color: rgb(153, 0, 255);
-    text-shadow: 2px 2px 2px #ddd;
-    font-weight: 700;
-    font-size: 28px;
-}
-
-#angular_img {
-    display: block;
-    margin: 0 auto;
-    width: 150px;
-    margin: 50px auto;
+#home-header {
+    font-size: 50px;
 }

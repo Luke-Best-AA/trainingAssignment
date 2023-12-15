@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HomeContentComponent } from './home-content/home-content.component';
+import { HomeContentModule } from './home-content/home-content.module';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -17,7 +17,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +24,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatGridListModule,
-    HomeContentComponent,
-    MatProgressSpinnerModule
+    HomeContentModule,
+    MatProgressSpinnerModule,
+    SpinnerComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-countdown-timer',
@@ -15,10 +15,10 @@ export class CountdownTimerComponent {
 
   orginalTimerLimit: number = this.timerLimit;
 
-
   counter: any;
 
   pauseLog: string = "";
+
 
 
   toggleTimer() {
@@ -39,6 +39,7 @@ export class CountdownTimerComponent {
       }
 
       this.noOfPauses++;
+
     }
     else {
       // start
@@ -48,8 +49,15 @@ export class CountdownTimerComponent {
 
       this.orginalTimerLimit = this.timerLimit;
       this.noOfStarts++;
+
       this.counter = setInterval(() => {
         this.timerLimit--;
+        if (this.timerLimit == -1) {
+          clearInterval(this.counter);
+          this.started = false;
+          this.timerLimit = this.orginalTimerLimit;
+          alert("Time's up!")
+        }
       }, 1000);
     }
   }
