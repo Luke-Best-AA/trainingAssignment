@@ -4,8 +4,9 @@ import { CommonModule } from '@angular/common';
 import { DynamicDivsRoutingModule } from './dynamic-divs-routing.module';
 import { DynamicDivsComponent } from './dynamic-divs.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { SpinnerComponent } from '../spinner/spinner.component';
-import { DetectBottomDirective } from '../detect-bottom.directive';
+import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
+import { DetectBottomDirective } from '../shared/directives/detect-bottom.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetectBottomDirective } from '../detect-bottom.directive';
     DynamicDivsRoutingModule,
     InfiniteScrollModule,
     SpinnerComponent,
-    DetectBottomDirective    
+    DetectBottomDirective,
+    HttpClientModule 
   ]
 })
 export class DynamicDivsModule { }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 
-import { Counter, CounterService } from './counter.service';
+import { CounterService } from '../shared/services/counter.service';
 
 @Component({
   selector: 'app-service-timer',
@@ -10,12 +9,7 @@ import { Counter, CounterService } from './counter.service';
 })
 
 export class ServiceTimerComponent {
-  counter$!: Observable<Counter[]>;
   constructor(public counterService: CounterService) {}
-
-  ngOnInit() {
-    this.counter$ = this.counterService.counter$;
-  }
 
   toggleTimer() {
     this.counterService.toggleCounter();

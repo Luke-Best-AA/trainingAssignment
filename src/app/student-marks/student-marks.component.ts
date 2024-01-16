@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
@@ -10,7 +10,10 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./student-marks.component.scss']
 })
 
-export class StudentMarksComponent {
+export class StudentMarksComponent implements OnInit {
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;  
+
   displayedColumns = ['position', 'name', 'class', 'sub_1', 'sub_2', 'sub_3'];
   data: any;
   dataSource: any;
@@ -18,18 +21,18 @@ export class StudentMarksComponent {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('assets/data.json').subscribe(res => {
-      this.data = res;
-      this.dataSource = new MatTableDataSource(this.data);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;      
+    this.http.get('assets/data.json').subscribe({
+      next: data => {
+        this.data = data;
+        this.dataSource = new MatTableDataSource(this.data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      }
     });
   }
-
-  
-  @ViewChild(MatSort) sort!: MatSort;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace

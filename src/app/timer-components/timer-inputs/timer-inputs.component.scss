@@ -1,0 +1,50 @@
+#inputs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+    "labelLimit limit"
+    ". inputControls"
+    "pauseLog pauseLog";
+    padding: 20px;
+}
+
+#labelLimit {
+    grid-area: labelLimit;
+    line-height: 45px;
+}
+
+#limit {
+    grid-area: limit;
+    width: 200px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0px 20px;
+    width: 100%;
+}
+
+#inputControls {
+    grid-area: inputControls;
+}
+
+#inputControls button {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: calc(50% - 5px);
+    padding: 7px 0;
+}
+
+#inputControls button:not(:last-child) {
+    margin: 10px 10px 10px 0px;
+}
+
+#inputControls button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+    border: 1px solid black;
+}
+
+#pauseLog {
+    grid-area: pauseLog;
+}

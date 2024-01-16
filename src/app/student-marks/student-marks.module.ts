@@ -9,7 +9,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgChartsModule } from 'ng2-charts'
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    NgChartsModule,
     HttpClientModule
   ]
 })

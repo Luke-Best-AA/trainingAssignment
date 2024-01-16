@@ -1,0 +1,11 @@
+<div id="inputs">
+    <label id="labelLimit" for="limit">Enter Timer Limit: </label>
+    <input type="text" name="limit" id="limit" [(ngModel)]="timerLimit" (ngModelChange)="timerChange($event)">
+    <div id="inputControls">
+        <button id="toggleTimer" type="button" (click)='toggleTimer()'><span>{{ btnText }}</span></button>
+        <button id="resetTimer" type="button" (click)='resetTimer()'>Reset</button>
+    </div>
+    <div id="pauseLog">
+        <p>Paused at:<span *ngFor="let pause of pauseLog; let isLast=last"> {{pause}}<span *ngIf="!isLast">,</span></span></p>
+    </div>
+</div>

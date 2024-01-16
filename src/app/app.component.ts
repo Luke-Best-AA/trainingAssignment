@@ -41,13 +41,11 @@ export class AppComponent {
     router.events.subscribe((event: Event) => {
       // If the event is RouteConfigLoadStart, set the variable to true
       if (event instanceof RouteConfigLoadStart) {
-        this.showPage = false;
         this.isLoading = true;
       }
       // If the event is RouteConfigLoadEnd, set the variable to false
       if (event instanceof RouteConfigLoadEnd) {
         setTimeout(() => {
-          this.showPage = true;
           this.isLoading = false;
         }, 1000);
       }

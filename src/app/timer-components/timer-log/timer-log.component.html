@@ -1,0 +1,5 @@
+<div id="timeLog">
+    <h3>Log</h3>
+    <p *ngIf="toggleLog.length == 0">No log yet</p>
+    <p *ngFor="let time of toggleLog"><b>{{time[0]}} at:</b> {{time[1]}} when Timer was at {{time[2]}}</p>
+</div>
