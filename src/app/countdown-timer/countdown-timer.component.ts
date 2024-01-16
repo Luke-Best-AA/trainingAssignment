@@ -8,16 +8,19 @@ import { Component } from '@angular/core';
 export class CountdownTimerComponent {
 
   started: boolean = false;
+
   noOfStarts: number = 0;
   noOfPauses: number = 0;
 
-  timerLimit: number = 2000;
+  timerLimit: number = 1000;
 
   orginalTimerLimit: number = this.timerLimit;
 
   counter: any;
 
-  pauseLog: string = "";
+  pauseLog:number[] = [];
+
+  toggleLog:String[][] = [];
 
 
 
@@ -26,26 +29,21 @@ export class CountdownTimerComponent {
       // pause
       this.started = false;
 
-      this.logToggle("pause");
+      this.logToggle(this.started);
 
       clearInterval(this.counter);
 
-      if (this.noOfPauses == 0)
-      {
-        this.pauseLog += this.timerLimit;
-      }
-      else {
-        this.pauseLog += ", " + this.timerLimit;
-      }
+      this.pauseLog.push(this.timerLimit);
 
       this.noOfPauses++;
 
     }
-    else {
+    else
+    {
       // start
       this.started = true;
 
-      this.logToggle("start");
+      this.logToggle(this.started);
 
       this.orginalTimerLimit = this.timerLimit;
       this.noOfStarts++;
@@ -57,83 +55,45 @@ export class CountdownTimerComponent {
           this.started = false;
           this.timerLimit = this.orginalTimerLimit;
           alert("Time's up!")
+          this.resetTimer();
         }
       }, 1000);
     }
   }
 
   resetTimer() {
-    this.pauseLog = "";
+    this.pauseLog = [];
+    this.toggleLog = [];
     this.noOfPauses = 0;
     this.noOfStarts = 0;
 
-    let log = document.getElementById("timeLog");
-
-    log!.innerHTML = "";
-
-    let heading = document.createElement("h3");
-    heading.style.margin = "5px";
-
-    heading.innerText = "Log";
-
-    log?.append(heading);
+    this.started = false;
 
     clearInterval(this.counter);
     this.timerLimit = this.orginalTimerLimit;
   }
 
-  logToggle(status: string) {
-    let log = document.getElementById("timeLog");
-
-    let logItem = document.createElement("div");
-
+  logToggle(status: boolean) {
     let statusMsg = "";
     
-    if (status == "start"){
+    if (status){
       statusMsg = "Started";
     }
-    else if (status == "pause"){
+    else {
       statusMsg = "Paused";
     }
 
-    let time = new Date();
-    let day = time.getDate();
-    let month = time.getMonth();
-    let year = time.getFullYear();
-    let hour = time.getHours();
-    let minute = time.getMinutes();
-    let second = time.getSeconds();
+    var date = new Date();
 
-    let dayString: string = day.toString();
-    let monthString: string = month.toString();
-    let hourString: string = hour.toString();
-    let minuteString: string = minute.toString();
-    let secondString: string = second.toString();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
 
-    if (day < 10) { 
-      dayString = "0" + dayString;
-    }
+    var formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year} ${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
 
-    if (month < 10) { 
-      monthString = "0" + monthString;
-    }
-    
-    if (hour < 10) { 
-      hourString = "0" + hourString;
-    }
-
-    if (minute < 10) {
-      minuteString = "0" + minuteString; 
-    }
-
-    if (second < 10) {
-      secondString = "0" + minuteString;
-    }
-
-    let timeString: string = dayString + "/" + monthString + "/" + year + " " + hourString + ":" + minuteString + ":" + secondString;
-
-    logItem.innerHTML = "<p class='logItem'><b>" + statusMsg + " at:</b> " + timeString + "</p><br>";
-
-    log?.append(logItem);
+    this.toggleLog.unshift([statusMsg, formattedDate, this.timerLimit.toString()]);
   }
 }

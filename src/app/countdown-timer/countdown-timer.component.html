@@ -2,33 +2,9 @@
     <h1>Timer Using Input, Output - 2-way data-binding</h1>
 
     <div id="timerGrid">
-        <div id="countdown" class="gridCell">
-            <p id="timerCaption">Count Down Timer</p>
-            <h2 id="currentTimer">{{timerLimit}}</h2>
-        </div>
-        <div id="inputs" class="gridCell">
-            <label id="labelLimit" for="limit">Enter Timer Limit: </label>
-            <input type="text" name="limit" id="limit" [(ngModel)]="timerLimit">
-            <div id="inputControls">
-                <button id="toggleTimer" type="button" (click)='toggleTimer()'>Start / Pause</button>
-                <button id="resetTimer" type="button" (click)='resetTimer()'>Reset</button>
-            </div>
-            <div id="pauseLog">
-                <p>Paused at: {{pauseLog}}</p>
-            </div>
-        </div>
-        <div id="timeLog" class="gridCell">
-            <h3>Log</h3>
-        </div>
-        <div id="buttonLog" class="gridCell">
-            <div id="startedContainer">
-                <h3 id="started">{{noOfStarts}}</h3>
-                <p>Started</p>
-            </div>
-            <div id="pausedContainer">
-                <h3 id="paused">{{noOfPauses}}</h3>
-                <p>Paused</p>
-            </div>
-        </div>
+        <app-timer-display [timerLimit]="timerLimit" class="gridCell"></app-timer-display>
+        <app-timer-inputs [(timerLimit)]="timerLimit" [started]="started" [pauseLog]="pauseLog" class="gridCell" (timerToggled)="toggleTimer()" (resetClicked)="resetTimer()"></app-timer-inputs>
+        <app-timer-log [toggleLog]="toggleLog" class="gridCell"></app-timer-log>
+        <app-timer-button-log [noOfStarts]="noOfStarts" [noOfPauses]="noOfPauses" class="gridCell"></app-timer-button-log>
     </div>
 </div>

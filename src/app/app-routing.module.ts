@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FloatingBannerComponent } from './floating-banner/floating-banner.component';
 
 const routes: Routes = [
   {
     path: 'floatingBanner',
-    loadChildren: () => import('./floating-banner/floating-banner.module').then(m => m.FloatingBannerModule)
+    component: FloatingBannerComponent,
   },
   {
     path: 'ecommercePage',
@@ -34,16 +35,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-  },  
+  }, 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(
-  routes,
-  {
-    // preloadingStrategy: PreloadAllModules
-  }
-)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

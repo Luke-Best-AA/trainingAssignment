@@ -1,9 +1,9 @@
 <div id="wrapper" appDetectBottom (scrolledToBottom)="bottom()">
     <h1>E-Commerce Page</h1>
     <div id="viewSelecter">
-        <select #view name="view" id="viewPicker" title="View Picker" [(ngModel)]="selectedOption" (change)="viewChanged()">
-            <option *ngFor="let o of options" [value]="o.name">
-            {{o.name}}
+        <select #view name="view" id="viewPicker" title="View Picker" [(ngModel)]="noofCols">
+            <option *ngFor="let option of options" [value]="option.value">
+            {{option.label}}
             </option>
         </select>
     </div>
@@ -11,17 +11,11 @@
     <div id="items">
         <mat-grid-list cols="{{noofCols}}" rowHeight="250px" [gutterSize]="'15px'">
             <mat-grid-tile *ngFor="let item of items">
-                <div *ngIf="isList" class="item list-item">
+                <div [ngClass]="{'grid-item': noofCols == 4, 'list-item': noofCols == 2}"  class="item">
                     <h1>Item {{ item.number }}</h1>
                     <p>{{ item.description }}</p>
                     <a href="#">Read More</a>
-                    <img *ngIf="isList" src="{{ item.image }}" alt="">
-                    <h2>£{{item.price}}</h2>               
-                </div>
-                <div *ngIf="isGrid" class="item grid-item">
-                    <h1>Item {{ item.number }}</h1>
-                    <p>{{ item.description }}</p>
-                    <a href="#">Read More</a>
+                    <img *ngIf="noofCols == 2" src="{{ item.image }}" alt="">
                     <h2>£{{item.price}}</h2>               
                 </div>
             </mat-grid-tile>

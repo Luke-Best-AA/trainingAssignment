@@ -1,18 +1,6 @@
-import { Component } from '@angular/core';
-
-let itemList:Element[] = [];
-
-for (let i = 1; i <= 40; i++) {
-  var item = {"number": i, "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.", "price": Math.floor(Math.random() * 100) + 1, "image": "https://picsum.photos/200/300?random="};
-  itemList.push(item);
-}
-
-export interface Element {
-  number: number;
-  description: string;
-  price: number;
-  image: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { Options} from '../enums/grid-options';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ecommerce-page',
@@ -20,31 +8,26 @@ export interface Element {
   styleUrls: ['./ecommerce-page.component.scss']
 })
 
-export class EcommercePageComponent {
-  items = itemList;
-  isGrid: boolean = true;
-  isList: boolean = false;
-
-  selectedOption: string = "Grid";
-  noofCols = 4;
-
+export class EcommercePageComponent implements OnInit {
+  constructor(private http: HttpClient) { }
   options = [
-    { name: "Grid"},
-    { name: "List"}
-  ]
+    { value: Options.Grid, label: 'Grid' },
+    { value: Options.List, label: 'List' }
+  ];  
+  items:any;  
 
-  viewChanged() {
-    if (this.selectedOption == "Grid") {
-      this.noofCols = 4;
-      this.isGrid = true;
-      this.isList = false;
-    }
-    else if (this.selectedOption == "List") {
-      this.noofCols = 2;
-      this.isList = true;
-      this.isGrid = false;
-    }
+  ngOnInit() {
+    this.http.get('assets/e-commerce-data.json').subscribe({
+      next: res => {
+        this.items = res;
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      }
+    });    
   }
+
+  noofCols:number = Options.Grid;
 
   bottom() {
     alert("bottom reached");

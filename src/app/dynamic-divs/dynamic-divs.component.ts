@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 interface DynamicDiv {
   title: string;
@@ -24,43 +25,47 @@ export class DynamicDivsComponent implements OnInit {
   scrollHeight:number = 0;
   clientHeight:number = 0;
 
-  divContents = [
-    {title: 'First Div', content: 'This is the first div'},
-    {title: 'Loaded from Array', content: 'These divs are loaded from an array to simulate loading a response from an API'},
-    {title: '10 Divs', content: 'The array is 10 items long and on each load 10 divs are created'},
-    {title: 'Fill the gap', content: 'This is a div here to fill the gap'},
-    {title: 'Div 5', content: 'Content 5'},
-    {title: 'Div 6', content: 'Content 6'},
-    {title: 'Div 7', content: 'Content 7'},
-    {title: 'Div 8', content: 'Content 8'},
-    {title: 'Div 9', content: 'Content 9'},
-    {title: 'Tenth Div', content: 'This Div is a multiple of 10 so will have a button to click'},
-  ];
+  divContents: any;
+  responseLength:number = 0;
 
-  responseLength = this.divContents.length;
+  modalTitle:string = "";
+  modalContent:string = "";
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.http.get('assets/dynamic-divs.json').subscribe({
+      next: res => {
+        this.divContents = res;
+        this.responseLength = this.divContents.length;
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      },
+      complete: () => {
+        var wrapper = document.getElementById('wrapper');
+        var width = wrapper!.offsetWidth;
+        var height = wrapper!.offsetHeight;
+        this.noToLoad = Math.floor(width/240);
+    
+        this.scrollHeight = wrapper!.scrollHeight;
+        this.clientHeight = wrapper!.clientHeight;
+    
+        this.createDivs();
+    
+        this.rows = Math.floor(height/240);    
+    
+        for (let i = 0; i < this.rows; i++) {
+          this.createDivs();
+          this.scrollHeight = wrapper!.scrollHeight;
+          this.clientHeight = wrapper!.clientHeight;
+        }        
+      }
+    });
+  }  
   
   divs:DynamicDiv[] = [];
   tenth = false;
-  
-  ngOnInit(): void {
-    var wrapper = document.getElementById('wrapper');
-    var width = wrapper!.offsetWidth;
-    var height = wrapper!.offsetHeight;
-    this.noToLoad = Math.floor(width/240);
-
-    this.scrollHeight = wrapper!.scrollHeight;
-    this.clientHeight = wrapper!.clientHeight;
-
-    this.createDivs();
-
-    this.rows = Math.floor(height/240);    
-
-    for (let i = 0; i < this.rows; i++) {
-      this.createDivs();
-      this.scrollHeight = wrapper!.scrollHeight;
-      this.clientHeight = wrapper!.clientHeight;
-    }
-  }
 
   tenthDiv = false;
 
@@ -94,11 +99,8 @@ export class DynamicDivsComponent implements OnInit {
   }
 
   tenthClick(divTitle:string, divContent:string, divNo:number) {
-    let modalHeading = document.getElementById("tenthModalLabel");
-    let modalContent = document.getElementById("tenthModalContent");
-
-    modalHeading!.innerHTML = "Div " + divNo + ": " + divTitle;
-    modalContent!.innerHTML = divContent;
+    this.modalTitle = "Div " + divNo + ": " + divTitle;
+    this.modalContent = divContent;
   }
 
   elements = [1];

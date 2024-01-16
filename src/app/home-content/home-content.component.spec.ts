@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeContentComponent } from './home-content.component';
+import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 
 describe('HomeContentComponent', () => {
   let component: HomeContentComponent;
@@ -8,7 +9,16 @@ describe('HomeContentComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeContentComponent]
+      imports: [
+        RouterLink,
+        RouterLinkActive
+      ],
+      declarations: [
+        HomeContentComponent
+      ],
+      providers: [
+        { provide: ActivatedRoute, useValue: { snapshot: { data: {} } } }
+      ]
     });
     fixture = TestBed.createComponent(HomeContentComponent);
     component = fixture.componentInstance;
