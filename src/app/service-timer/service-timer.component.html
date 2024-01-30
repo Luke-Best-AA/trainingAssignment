@@ -2,9 +2,9 @@
     <h1>Timer Using Service using Subject</h1>
 
     <div id="timerGrid">
-        <app-timer-display [timerLimit]="counterService.timerLimit" class="gridCell"></app-timer-display>
-        <app-timer-inputs [(timerLimit)]="counterService.timerLimit" [started]="counterService.started" [pauseLog]="counterService.pauseLog" (timerToggled)="toggleTimer()" (resetClicked)="resetTimer()" class="gridCell"></app-timer-inputs>
-        <app-timer-log [toggleLog]="counterService.toggleLog" class="gridCell"></app-timer-log>
-        <app-timer-button-log [noOfStarts]="counterService.noOfStarts" [noOfPauses]="counterService.noOfPauses" class="gridCell"></app-timer-button-log>
+        <app-timer-display [timerLimit]="timerLimit" class="gridCell"></app-timer-display>
+        <app-timer-inputs [(timerLimit)]="timerLimit" [started]="started" [pauseLog]="pauseLog" (timerToggled)="toggleTimer()" (resetClicked)="resetTimer()" class="gridCell"></app-timer-inputs>
+        <app-timer-log [toggleLog]="toggleLog" class="gridCell"></app-timer-log>
+        <app-timer-button-log [noOfStarts]="noOfStarts" [noOfPauses]="noOfPauses" class="gridCell"></app-timer-button-log>
     </div>
 </div>

@@ -1,35 +1,47 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 
-
+/** Interface for Counter */
 interface Counter {
+  /** Id */
   id: any;
+  /** Value */
   value: string;
 }
 
+/**
+ * `CounterService` is a service that provides Counter functionality.
+*/
 @Injectable({
   providedIn: 'root'
 })
 
 export class CounterService {
-
+  /** Counter Created */
   private counter = new BehaviorSubject<Counter[]>([]);
+  /** Counter Observable */
   readonly counter$ = this.counter.asObservable();
 
+  /** Is the counter started? */
   started: boolean = false;
+  /** How many times has the counter started? */
   noOfStarts: number = 0;
+  /** How many times has the counter paused? */
   noOfPauses: number = 0;
-
+  /** Timer limit of the counter */
   timerLimit: number = 2000;
-
+  /** Orginal timer limit of the counter */
   orginalTimerLimit: number = this.timerLimit;
 
-
+  /** Variable to contain the countdown setInterval */
   counterInterval: any;
 
+  /** Pause log of the counter */
   pauseLog:number[] = [];
+  /** Toggle log of the counter */
   toggleLog:String[][] = [];  
 
+  /** Resets the counter */
   resetCounter() {
     this.pauseLog = [];
     this.toggleLog = [];    
@@ -42,6 +54,7 @@ export class CounterService {
     this.timerLimit = this.orginalTimerLimit;
   }
 
+  /** Toggles the counter */
   toggleCounter() {
     if (this.started) {
       // pause
@@ -70,6 +83,7 @@ export class CounterService {
     }
   }
 
+  /** Logs the toggle */
   logToggle(status: boolean) {
     let statusMsg = "";
     
@@ -94,5 +108,6 @@ export class CounterService {
     this.toggleLog.unshift([statusMsg, formattedDate, this.timerLimit.toString()]);
   }
 
+  /** Creates instance of counter service */
   constructor() { }
 }

@@ -1,0 +1,768 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>training-assignment documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">training-assignment documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EcommercePageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/ecommerce-page/ecommerce-page.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p><code>EcommercePageComponent</code> is a component that provides a ecommerce page functionality.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-ecommerce-page</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./ecommerce-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ecommerce-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                <a href="#noofCols" >noofCols</a>
+                            </li>
+                            <li>
+                                <a href="#options" >options</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bottom" >bottom</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: HttpClient)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sets up HttpClient</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bottom"></a>
+                    <span class="name">
+                        <span ><b>bottom</b></span>
+                        <a href="#bottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>bottom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>When the bottom of the wrapper is reached</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets the items from the json file weh the component is initialized.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="items"></a>
+                    <span class="name">
+                        <span ><b>items</b></span>
+                        <a href="#items"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The items to be displayed</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noofCols"></a>
+                    <span class="name">
+                        <span ><b>noofCols</b></span>
+                        <a href="#noofCols"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Options.Grid</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The number of columns</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="options"></a>
+                    <span class="name">
+                        <span ><b>options</b></span>
+                        <a href="#options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { value: Options.Grid, label: &#x27;Grid&#x27; },
+    { value: Options.List, label: &#x27;List&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/ecommerce-page/ecommerce-page.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The options for the grid</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Options} from &#x27;../enums/grid-options&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+
+/**
+ * &#x60;EcommercePageComponent&#x60; is a component that provides a ecommerce page functionality.
+*/
+@Component({
+  selector: &#x27;app-ecommerce-page&#x27;,
+  templateUrl: &#x27;./ecommerce-page.component.html&#x27;,
+  styleUrls: [&#x27;./ecommerce-page.component.scss&#x27;]
+})
+
+export class EcommercePageComponent implements OnInit {
+  /** Sets up HttpClient */
+  constructor(private http: HttpClient) { }
+
+  /** The options for the grid */
+  options &#x3D; [
+    { value: Options.Grid, label: &#x27;Grid&#x27; },
+    { value: Options.List, label: &#x27;List&#x27; }
+  ];
+  
+  /** The items to be displayed */
+  items:any;  
+
+  /** The number of columns */
+  noofCols:number &#x3D; Options.Grid;  
+
+  /**
+   * Gets the items from the json file weh the component is initialized.
+   */
+  ngOnInit() {
+    this.http.get(&#x27;assets/e-commerce-data.json&#x27;).subscribe({
+      next: res &#x3D;&gt; {
+        this.items &#x3D; res;
+      },
+      error: error &#x3D;&gt; {
+        console.error(&#x27;There was an error!&#x27;, error);
+      }
+    });    
+  }
+
+  /** When the bottom of the wrapper is reached */
+  bottom() {
+    alert(&quot;bottom reached&quot;);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;wrapper&quot; appDetectBottom (scrolledToBottom)&#x3D;&quot;bottom()&quot;&gt;
+    &lt;h1&gt;E-Commerce Page&lt;/h1&gt;
+    &lt;div id&#x3D;&quot;viewSelecter&quot;&gt;
+        &lt;select #view name&#x3D;&quot;view&quot; id&#x3D;&quot;viewPicker&quot; title&#x3D;&quot;View Picker&quot; [(ngModel)]&#x3D;&quot;noofCols&quot;&gt;
+            &lt;option *ngFor&#x3D;&quot;let option of options&quot; [value]&#x3D;&quot;option.value&quot;&gt;
+            {{option.label}}
+            &lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+
+    &lt;div id&#x3D;&quot;items&quot;&gt;
+        &lt;mat-grid-list cols&#x3D;&quot;{{noofCols}}&quot; rowHeight&#x3D;&quot;250px&quot; [gutterSize]&#x3D;&quot;&#x27;15px&#x27;&quot;&gt;
+            &lt;mat-grid-tile *ngFor&#x3D;&quot;let item of items&quot;&gt;
+                &lt;div [ngClass]&#x3D;&quot;{&#x27;grid-item&#x27;: noofCols &#x3D;&#x3D; 4, &#x27;list-item&#x27;: noofCols &#x3D;&#x3D; 2}&quot;  class&#x3D;&quot;item&quot;&gt;
+                    &lt;h1&gt;Item {{ item.number }}&lt;/h1&gt;
+                    &lt;p&gt;{{ item.description }}&lt;/p&gt;
+                    &lt;a href&#x3D;&quot;#&quot;&gt;Read More&lt;/a&gt;
+                    &lt;img *ngIf&#x3D;&quot;noofCols &#x3D;&#x3D; 2&quot; src&#x3D;&quot;{{ item.image }}&quot; alt&#x3D;&quot;&quot;&gt;
+                    &lt;h2&gt;£{{item.price}}&lt;/h2&gt;               
+                &lt;/div&gt;
+            &lt;/mat-grid-tile&gt;
+        &lt;/mat-grid-list&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./ecommerce-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#viewSelecter {
+    display: flex;
+    justify-content: right;
+}
+
+#items {
+    margin-top: 15px;
+}
+
+#viewPicker {
+    width: 120px;
+    height: 30px;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0px 1px #ddd;    
+}
+
+ mat-grid-tile {  
+     border: 1px solid #000;  
+     background-color: #FFF;
+ }
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+}
+
+.list-item {
+    grid-template-areas: 
+    &quot;header header&quot;
+    &quot;image description&quot;
+    &quot;link price&quot;    
+}
+
+.grid-item {
+    grid-template-areas: 
+    &quot;header header&quot;
+    &quot;description description&quot;
+    &quot;link price&quot;    
+}
+
+.item h1 {
+    grid-area: header;
+    margin: 10px 10px;
+}
+
+.item p {
+    grid-area: description;
+    margin: 10px 10px;
+}
+
+.item img {
+    grid-area: image;
+    width: calc(100% - 20px);
+    height: 100px;
+    margin: 10px;
+}
+
+.item a {
+    grid-area: link;
+    margin: 0px 10px;
+}
+
+.item h2 {
+    grid-area: price;
+    justify-self: end;
+    margin: 0px 10px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="wrapper" appDetectBottom (scrolledToBottom)="bottom()">    <h1>E-Commerce Page</h1>    <div id="viewSelecter">        <select #view name="view" id="viewPicker" title="View Picker" [(ngModel)]="noofCols">            <option *ngFor="let option of options" [value]="option.value">            {{option.label}}            </option>        </select>    </div>    <div id="items">        <mat-grid-list cols="{{noofCols}}" rowHeight="250px" [gutterSize]="\'15px\'">            <mat-grid-tile *ngFor="let item of items">                <div [ngClass]="{\'grid-item\': noofCols == 4, \'list-item\': noofCols == 2}"  class="item">                    <h1>Item {{ item.number }}</h1>                    <p>{{ item.description }}</p>                    <a href="#">Read More</a>                    <img *ngIf="noofCols == 2" src="{{ item.image }}" alt="">                    <h2>£{{item.price}}</h2>                               </div>            </mat-grid-tile>        </mat-grid-list>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CountdownTimerComponent', 'selector': 'app-countdown-timer'},{'name': 'DynamicDivsComponent', 'selector': 'app-dynamic-divs'},{'name': 'EcommercePageComponent', 'selector': 'app-ecommerce-page'},{'name': 'FloatingBannerComponent', 'selector': 'app-floating-banner'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeContentComponent', 'selector': 'app-home-content'},{'name': 'ServiceTimerComponent', 'selector': 'app-service-timer'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StudentMarksComponent', 'selector': 'app-student-marks'},{'name': 'TimerButtonLogComponent', 'selector': 'app-timer-button-log'},{'name': 'TimerDisplayComponent', 'selector': 'app-timer-display'},{'name': 'TimerDisplayComponent', 'selector': 'app-timer-display'},{'name': 'TimerInputsComponent', 'selector': 'app-timer-inputs'},{'name': 'TimerLogComponent', 'selector': 'app-timer-log'}];
+    var DIRECTIVES = [{'name': 'DetectBottomDirective', 'selector': '[appDetectBottom]'}];
+    var ACTUAL_COMPONENT = {'name': 'EcommercePageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EcommercePageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

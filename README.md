@@ -14,6 +14,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Generate Documentation
+
+Run `compodoc -p .\tsconfig.doc.json -s` to generate the project documentation using CompoDoc. The documentation will be generated into the `documentation` directory.
+
+## Run LightHouse Performance Tests
+
+Run `lighthouse http://localhost:4200/ --view` (change port to the one the app is running on) to produce a LightHouse report. The report will be stored in the root folder of the app as a .report HTML Document.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

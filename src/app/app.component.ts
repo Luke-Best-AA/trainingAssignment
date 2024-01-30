@@ -1,41 +1,24 @@
 import { Component } from '@angular/core';
 import { Router, Event, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
-import { trigger, transition, style, animate } from '@angular/animations';
 
+/**
+ * `AppComponent` is a component that provides the app.
+*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [
-    trigger(
-      'inOutAnimation', 
-      [
-        transition(
-          ':enter', 
-          [
-            style({ opacity: 0 }),
-            animate('1s ease-out', 
-                    style({ opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave', 
-          [
-            style({ opacity: 1 }),
-            animate('1s ease-in', 
-                    style({ opacity: 0 }))
-          ]
-        )
-      ]
-    )
-  ]  
+  styleUrls: ['./app.component.scss'] 
 })
 export class AppComponent {
+  /** Title of the App */
   title = 'trainingAssignment';
-
-  showPage: boolean = true;
+  /** Boolean to show or hide the page based on loading */
   isLoading: boolean = false;  
 
+  /**
+   * Creates an instance of `AppComponent`.
+   * @param router Router to subscribe to the router events
+  */
   constructor(router: Router) {
     // Subscribe to the router events
     router.events.subscribe((event: Event) => {
