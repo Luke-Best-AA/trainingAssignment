@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
+/**
+ * `TimerButtonLogComponent` is a component that displays the number of starts and pauses of a timer.
+ */
 @Component({
   selector: 'app-timer-button-log',
   templateUrl: './timer-button-log.component.html',
@@ -8,6 +10,9 @@ import { Input } from '@angular/core';
   standalone: true,
 })
 export class TimerButtonLogComponent {
+  /** The number of times the timer has started. */
   @Input() noOfStarts: number = 0;
+
+  /** The number of times the timer has been paused. */
   @Input() noOfPauses: number = 0;
 }

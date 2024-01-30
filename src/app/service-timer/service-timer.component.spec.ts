@@ -36,18 +36,14 @@ describe('ServiceTimerComponent', () => {
   });
 
   it('#toggleTimer should call toggleCounter on CounterService', () => {
-    // Act
     component.toggleTimer();
 
-    // Assert
     expect(counterService.toggleCounter).toHaveBeenCalled();
   });
 
   it('#resetTimer should call resetCounter on CounterService', () => {
-    // Act
     component.resetTimer();
 
-    // Assert
     expect(counterService.resetCounter).toHaveBeenCalled();
   });
 });
