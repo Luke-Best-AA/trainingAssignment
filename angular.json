@@ -20,7 +20,26 @@
 						"customWebpackConfig": {
 							"path": "src/custom-webpack.config.js",
 							"replaceDuplicatePlugins": true
-						}
+						},
+						"outputPath": "dist/training-assignment",
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"polyfills": [
+							"zone.js"
+						],
+						"tsConfig": "tsconfig.app.json",
+						"assets": [
+							"src/favicon.ico",
+							"src/assets"
+						],
+						"styles": [
+							"node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/styles.scss"
+						],
+						"scripts": [
+							"node_modules/bootstrap/dist/js/bootstrap.js"
+						]						
 					},
 					"configurations": {
 						"production": {
